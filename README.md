@@ -170,4 +170,4 @@ OVAL (Open Vulnerability Assessment Language) работает по следую
 
 >A heap buffer overflow issue was found in the SLiRP networking implementation of the QEMU emulator. This flaw occurs in the ip_reass() routine while reassembling incoming packets if the first fragment is bigger than the m->m_dat[] buffer. An attacker could use this flaw to crash the QEMU process on the host, resulting in a Denial of Service or potentially executing arbitrary code with privileges of the QEMU process.
 
-После некоторых изучениений проблемы я понял, что уязвимость обнаружена в компоненте QEMU (slirp) — используется для сетевой виртуализации, в последствие атакующий может вызвать сбой приложения (crash) или, потенциально, выполнить произвольный код на хосте (в зависимости от конфигурации).
+После некоторых изучениений проблемы я понял, что уязвимость обнаруженая в компоненте QEMU (slirp) — используется для сетевой виртуализации, в последствие атакующий может вызвать сбой приложения (crash) или, потенциально, выполнить произвольный код на хосте (в зависимости от конфигурации).
