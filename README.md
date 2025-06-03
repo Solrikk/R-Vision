@@ -1,5 +1,7 @@
 # -_R-Vision т
 
+Задание 1.
+
  > Провести частичный анализ OVAL файла от компании RHEL
 (https://www.redhat.com/security/data/oval/v2/RHEL8/rhel-8.oval.xml.bz2) на
 первых 3 уязвимостях (патчах). Определить набор объектов, из которых он
