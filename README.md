@@ -130,3 +130,38 @@ OVAL (Open Vulnerability Assessment Language) работает по следую
 ---
 
 ### 2. Патч oval_com.redhat.rhba_def_20192715.xml RHBA-2019:1992 (CVE-2019-0816)
+
+```xml
+<oval-def:definition xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:com.redhat.rhba:def:20192715" version="637">
+<oval-def:metadata>
+<oval-def:title>RHBA-2019:2715: virt:rhel bug fix update (Important)</oval-def:title>
+<oval-def:affected family="unix">
+<oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+</oval-def:affected>
+<oval-def:reference ref_id="RHBA-2019:2715" ref_url="https://access.redhat.com/errata/RHBA-2019:2715" source="RHSA"/>
+<oval-def:reference ref_id="CVE-2019-14378" ref_url="https://access.redhat.com/security/cve/CVE-2019-14378" source="CVE"/>
+<oval-def:description>Bug Fix(es): * qemu-kvm core dumped after hotplug the deleted disk with iothread parameter (BZ#1718992) * Detached device when trying to upgrade USB device firmware when in doing USB Passthrough via QEMU (BZ#1719228)</oval-def:description>
+<oval-def:advisory from="secalert@redhat.com">
+<oval-def:severity>Important</oval-def:severity>
+<oval-def:rights>Copyright 2019 Red Hat, Inc.</oval-def:rights>
+<oval-def:issued date="2019-09-12"/>
+<oval-def:updated date="2019-09-12"/>
+<oval-def:cve cvss3="7.0/CVSS:3.0/AV:L/AC:H/PR:L/UI:N/S:C/C:L/I:L/A:H" cwe="CWE-122" href="https://access.redhat.com/security/cve/CVE-2019-14378" impact="important" public="20190728">CVE-2019-14378</oval-def:cve>
+<oval-def:bugzilla href="https://bugzilla.redhat.com/1734745" id="1734745">QEMU: slirp: heap buffer overflow during packet reassembly</oval-def:bugzilla>
+<oval-def:affected_cpe_list>
+<oval-def:cpe>cpe:/a:redhat:enterprise_linux:8</oval-def:cpe>
+<oval-def:cpe>cpe:/a:redhat:enterprise_linux:8::appstream</oval-def:cpe>
+<oval-def:cpe>cpe:/a:redhat:enterprise_linux:8::crb</oval-def:cpe>
+<oval-def:cpe>cpe:/a:redhat:enterprise_linux:8::highavailability</oval-def:cpe>
+<oval-def:cpe>cpe:/a:redhat:enterprise_linux:8::nfv</oval-def:cpe>
+<oval-def:cpe>cpe:/a:redhat:enterprise_linux:8::realtime</oval-def:cpe>
+<oval-def:cpe>cpe:/a:redhat:enterprise_linux:8::resilientstorage</oval-def:cpe>
+<oval-def:cpe>cpe:/a:redhat:enterprise_linux:8::sap</oval-def:cpe>
+<oval-def:cpe>cpe:/a:redhat:enterprise_linux:8::sap_hana</oval-def:cpe>
+<oval-def:cpe>cpe:/a:redhat:enterprise_linux:8::supplementary</oval-def:cpe>
+<oval-def:cpe>cpe:/o:redhat:enterprise_linux:8</oval-def:cpe>
+<oval-def:cpe>cpe:/o:redhat:enterprise_linux:8::baseos</oval-def:cpe>
+</oval-def:affected_cpe_list>
+</oval-def:advisory>
+</oval-def:metadata>
+```
