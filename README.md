@@ -27,7 +27,9 @@
 
 Разбор 3 патчей:
 
-### 1-ый патч - oval_com.redhat.rhba_def_20191992.xml (CVE-2019-0816)
+---
+
+### 1. Патч oval_com.redhat.rhba_def_20191992.xml RHBA-2019:1992 (CVE-2019-0816)
 
 ```xml
 <oval-def:definition xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:com.redhat.rhba:def:20191992" version="635">
