@@ -124,3 +124,9 @@ OVAL (Open Vulnerability Assessment Language) работает по следую
 
 #### Техническое решение
 **Обновление пакета:** cloud-init до версии `0:18.5-1.el8.4` или выше
+
+
+
+---
+
+### 2. Патч oval_com.redhat.rhba_def_20192715.xml RHBA-2019:1992 (CVE-2019-0816)
