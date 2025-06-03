@@ -165,3 +165,6 @@ OVAL (Open Vulnerability Assessment Language) работает по следую
 </oval-def:advisory>
 </oval-def:metadata>
 ```
+
+Перехожу на сайт https://access.redhat.com/security/cve/CVE-2019-14378 и читаю проблему:
+
