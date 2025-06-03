@@ -268,3 +268,12 @@ OVAL (Open Vulnerability Assessment Language) работает по следую
 </oval-def:advisory>
 </oval-def:metadata>
 ```
+
+1. Перехожу на сайт https://access.redhat.com/security/cve/CVE-2019-14378 и читаю проблему:
+2. Перехожу на сайт https://access.redhat.com/security/cve/CVE-2019-14378 и читаю проблему:
+3. Перехожу на сайт https://access.redhat.com/security/cve/CVE-2019-14378 и читаю проблему:
+4. Перехожу на сайт https://access.redhat.com/security/cve/CVE-2019-14378 и читаю проблему:
+5. Перехожу на сайт https://access.redhat.com/security/cve/CVE-2019-14378 и читаю проблему:
+
+
+>
