@@ -295,7 +295,7 @@ OVAL (Open Vulnerability Assessment Language) работает по следую
  alert_error "While executing gem ... (#{ex.class})\n #{ex}"
 ```
 
-### CVSS v3 Оценка Уязвимости
+### Разбор оценки CVSS v3
 
 | Показатель                | Red Hat | NVD     |
 |--------------------------|---------|---------|
