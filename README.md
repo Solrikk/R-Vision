@@ -79,4 +79,5 @@
 Перехожу на сайт и читаю проблему:
 >A security feature bypass exists in Azure SSH Keypairs, due to a change in the provisioning logic for some Linux images that use cloud-init, aka 'Azure SSH Keypairs Security Feature Bypass Vulnerability'.
 
-Как я знаю это большая проблема
+Как я знаю это большая проблема котора могла развиться к неавторизованному доступу в систему.
+
