@@ -272,10 +272,10 @@ OVAL (Open Vulnerability Assessment Language) работает по следую
 1. Перехожу на сайт https://bugzilla.redhat.com/show_bug.cgi?id=1692512 (**CVE-2019-8320**) и читаю проблему:
 >A Directory Traversal issue was discovered in RubyGems 2.7.6 and later through 3.0.2. Before making new directories or touching files (which now include path-checking code for symlinks), it would delete the target destination. If that destination was hidden behind a symlink, a malicious gem could delete arbitrary files on the user’s machine, presuming the attacker could guess at paths. Given how frequently gem is run as sudo, and how predictable paths are on modern systems (/tmp, /usr, etc.), this could likely lead to data loss or an unusable system.
 
-2. Перехожу на сайт https://bugzilla.redhat.com/show_bug.cgi?id=1692514 и читаю проблему:
+2. Перехожу на сайт https://bugzilla.redhat.com/show_bug.cgi?id=1692514 или на https://access.redhat.com/security/cve/CVE-2019-8320 и читаю проблему:
 >An issue was discovered in RubyGems 2.6 and later through 3.0.2. Since Gem::UserInteraction#verbose calls say without escaping, escape sequence injection is possible.
 
-3. Перехожу на сайт https://bugzilla.redhat.com/show_bug.cgi?id=1692516 и читаю проблему:
+3. Перехожу на сайт https://bugzilla.redhat.com/show_bug.cgi?id=1692516 или на https://access.redhat.com/security/cve/CVE-2019-8321 и читаю проблему:
 >An issue was discovered in RubyGems 2.6 and later through 3.0.2. The gem owner command outputs the contents of the API response directly to stdout. Therefore, if the response is crafted, escape sequence injection may occur.
 
 4. Перехожу на сайт https://bugzilla.redhat.com/show_bug.cgi?id=1692519 и читаю проблему:
@@ -301,3 +301,10 @@ OVAL (Open Vulnerability Assessment Language) работает по следую
 - **Суть:** Инъекция escape-последовательностей в различных компонентах RubyGems
 - **Компоненты:** verbose mode, gem owner, API response handling, error messages
 - **Риск:** Возможность выполнения произвольных команд через терминальные escape-последовательности
+
+
+## Исправление:
+Патч исправляет:
+1. **Directory Traversal** - добавлена проверка путей и симлинков перед операциями с файлами
+2. **Escape Sequence Injection** - добавлено экранирование выводимых данных во всех уязвимых компонентах
+3. **Улучшена валидация входных данных** для предотвращения инъекций
