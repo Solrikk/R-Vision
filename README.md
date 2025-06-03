@@ -168,3 +168,6 @@ OVAL (Open Vulnerability Assessment Language) работает по следую
 
 Перехожу на сайт https://access.redhat.com/security/cve/CVE-2019-14378 и читаю проблему:
 
+>A heap buffer overflow issue was found in the SLiRP networking implementation of the QEMU emulator. This flaw occurs in the ip_reass() routine while reassembling incoming packets if the first fragment is bigger than the m->m_dat[] buffer. An attacker could use this flaw to crash the QEMU process on the host, resulting in a Denial of Service or potentially executing arbitrary code with privileges of the QEMU process.
+
+
