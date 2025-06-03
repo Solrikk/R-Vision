@@ -216,3 +216,51 @@ OVAL (Open Vulnerability Assessment Language) работает по следую
 ---
 
 ### 3. Патч oval_com.redhat.rhba_def_20193384.xml RHBA-2019:3384: Ruby 2.5 (CVE-2019-8320///CVE-2019-8321///CVE-2019-8322///CVE-2019-8323///CVE-2019-8325)
+
+```xml
+
+<oval-def:definition xmlns:oval-def="http://oval.mitre.org/XMLSchema/oval-definitions-5" class="patch" id="oval:com.redhat.rhba:def:20193384" version="639">
+<oval-def:metadata>
+<oval-def:title>RHBA-2019:3384: ruby:2.5 bug fix and enhancement update (Moderate)</oval-def:title>
+<oval-def:affected family="unix">
+<oval-def:platform>Red Hat Enterprise Linux 8</oval-def:platform>
+</oval-def:affected>
+<oval-def:reference ref_id="RHBA-2019:3384" ref_url="https://access.redhat.com/errata/RHBA-2019:3384" source="RHSA"/>
+<oval-def:reference ref_id="CVE-2019-8320" ref_url="https://access.redhat.com/security/cve/CVE-2019-8320" source="CVE"/>
+<oval-def:reference ref_id="CVE-2019-8321" ref_url="https://access.redhat.com/security/cve/CVE-2019-8321" source="CVE"/>
+<oval-def:reference ref_id="CVE-2019-8322" ref_url="https://access.redhat.com/security/cve/CVE-2019-8322" source="CVE"/>
+<oval-def:reference ref_id="CVE-2019-8323" ref_url="https://access.redhat.com/security/cve/CVE-2019-8323" source="CVE"/>
+<oval-def:reference ref_id="CVE-2019-8325" ref_url="https://access.redhat.com/security/cve/CVE-2019-8325" source="CVE"/>
+<oval-def:description>For detailed information on changes in this release, see the Red Hat Enterprise Linux 8.1 Release Notes linked from the References section.</oval-def:description>
+<oval-def:advisory from="secalert@redhat.com">
+<oval-def:severity>Moderate</oval-def:severity>
+<oval-def:rights>Copyright 2019 Red Hat, Inc.</oval-def:rights>
+<oval-def:issued date="2019-11-05"/>
+<oval-def:updated date="2019-11-05"/>
+<oval-def:cve cvss3="7.4/CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:H" cwe="CWE-22" href="https://access.redhat.com/security/cve/CVE-2019-8320" impact="moderate" public="20190305">CVE-2019-8320</oval-def:cve>
+<oval-def:cve cvss3="5.3/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N" cwe="CWE-88" href="https://access.redhat.com/security/cve/CVE-2019-8321" impact="low" public="20190305">CVE-2019-8321</oval-def:cve>
+<oval-def:cve cvss3="5.3/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N" cwe="CWE-88" href="https://access.redhat.com/security/cve/CVE-2019-8322" impact="low" public="20190305">CVE-2019-8322</oval-def:cve>
+<oval-def:cve cvss3="5.3/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N" cwe="CWE-88" href="https://access.redhat.com/security/cve/CVE-2019-8323" impact="low" public="20190305">CVE-2019-8323</oval-def:cve>
+<oval-def:cve cvss3="5.3/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N" cwe="CWE-88" href="https://access.redhat.com/security/cve/CVE-2019-8325" impact="low" public="20190305">CVE-2019-8325</oval-def:cve>
+<oval-def:bugzilla href="https://bugzilla.redhat.com/1692512" id="1692512">rubygems: Delete directory using symlink when decompressing tar</oval-def:bugzilla>
+<oval-def:bugzilla href="https://bugzilla.redhat.com/1692514" id="1692514">rubygems: Escape sequence injection vulnerability in verbose</oval-def:bugzilla>
+<oval-def:bugzilla href="https://bugzilla.redhat.com/1692516" id="1692516">rubygems: Escape sequence injection vulnerability in gem owner</oval-def:bugzilla>
+<oval-def:bugzilla href="https://bugzilla.redhat.com/1692519" id="1692519">rubygems: Escape sequence injection vulnerability in API response handling</oval-def:bugzilla>
+<oval-def:bugzilla href="https://bugzilla.redhat.com/1692522" id="1692522">rubygems: Escape sequence injection vulnerability in errors</oval-def:bugzilla>
+<oval-def:affected_cpe_list>
+<oval-def:cpe>cpe:/a:redhat:enterprise_linux:8</oval-def:cpe>
+<oval-def:cpe>cpe:/a:redhat:enterprise_linux:8::appstream</oval-def:cpe>
+<oval-def:cpe>cpe:/a:redhat:enterprise_linux:8::crb</oval-def:cpe>
+<oval-def:cpe>cpe:/a:redhat:enterprise_linux:8::highavailability</oval-def:cpe>
+<oval-def:cpe>cpe:/a:redhat:enterprise_linux:8::nfv</oval-def:cpe>
+<oval-def:cpe>cpe:/a:redhat:enterprise_linux:8::realtime</oval-def:cpe>
+<oval-def:cpe>cpe:/a:redhat:enterprise_linux:8::resilientstorage</oval-def:cpe>
+<oval-def:cpe>cpe:/a:redhat:enterprise_linux:8::sap</oval-def:cpe>
+<oval-def:cpe>cpe:/a:redhat:enterprise_linux:8::sap_hana</oval-def:cpe>
+<oval-def:cpe>cpe:/a:redhat:enterprise_linux:8::supplementary</oval-def:cpe>
+<oval-def:cpe>cpe:/o:redhat:enterprise_linux:8</oval-def:cpe>
+<oval-def:cpe>cpe:/o:redhat:enterprise_linux:8::baseos</oval-def:cpe>
+</oval-def:affected_cpe_list>
+</oval-def:advisory>
+</oval-def:metadata>
+```
