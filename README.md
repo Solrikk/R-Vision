@@ -278,7 +278,9 @@ OVAL (Open Vulnerability Assessment Language) работает по следую
 3. Перехожу на сайт https://bugzilla.redhat.com/show_bug.cgi?id=1692516 и читаю проблему:
 >An issue was discovered in RubyGems 2.6 and later through 3.0.2. The gem owner command outputs the contents of the API response directly to stdout. Therefore, if the response is crafted, escape sequence injection may occur.
 
-4. Перехожу на сайт https://access.redhat.com/security/cve/CVE-2019-14378 и читаю проблему:
+4. Перехожу на сайт https://bugzilla.redhat.com/show_bug.cgi?id=1692519 и читаю проблему:
+>An issue was discovered in RubyGems 2.6 and later through 3.0.2. Gem::GemcutterUtilities#with_response may output the API response to stdout as it is. Therefore, if the API side modifies the response, escape sequence injection may occur.
+
 5. Перехожу на сайт https://access.redhat.com/security/cve/CVE-2019-14378 и читаю проблему:
 
 
