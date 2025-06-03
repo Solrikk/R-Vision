@@ -294,3 +294,10 @@ OVAL (Open Vulnerability Assessment Language) работает по следую
 ```
  alert_error "While executing gem ... (#{ex.class})\n #{ex}"
 ```
+
+И следующие:
+
+**CVE-2019-8321, CVE-2019-8322, CVE-2019-8323, CVE-2019-8325:**
+- **Суть:** Инъекция escape-последовательностей в различных компонентах RubyGems
+- **Компоненты:** verbose mode, gem owner, API response handling, error messages
+- **Риск:** Возможность выполнения произвольных команд через терминальные escape-последовательности
