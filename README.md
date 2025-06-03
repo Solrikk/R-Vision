@@ -1,6 +1,6 @@
 # R-Vision Тестовое задание
 
-## Задание 1.
+## Задание 1: Анализ OVAL файла RHEL
 
  > Провести частичный анализ OVAL файла от компании RHEL
 (https://www.redhat.com/security/data/oval/v2/RHEL8/rhel-8.oval.xml.bz2) на
