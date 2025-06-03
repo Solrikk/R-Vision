@@ -270,7 +270,7 @@ OVAL (Open Vulnerability Assessment Language) работает по следую
 ```
 
 1. Перехожу на сайт https://bugzilla.redhat.com/show_bug.cgi?id=1692512 и читаю проблему:
-<A Directory Traversal issue was discovered in RubyGems 2.7.6 and later through 3.0.2. Before making new directories or touching files (which now include path-checking code for symlinks), it would delete the target destination. If that destination was hidden behind a symlink, a malicious gem could delete arbitrary files on the user’s machine, presuming the attacker could guess at paths. Given how frequently gem is run as sudo, and how predictable paths are on modern systems (/tmp, /usr, etc.), this could likely lead to data loss or an unusable system.
+>A Directory Traversal issue was discovered in RubyGems 2.7.6 and later through 3.0.2. Before making new directories or touching files (which now include path-checking code for symlinks), it would delete the target destination. If that destination was hidden behind a symlink, a malicious gem could delete arbitrary files on the user’s machine, presuming the attacker could guess at paths. Given how frequently gem is run as sudo, and how predictable paths are on modern systems (/tmp, /usr, etc.), this could likely lead to data loss or an unusable system.
 
 2. Перехожу на сайт https://access.redhat.com/security/cve/CVE-2019-14378 и читаю проблему:
 <
