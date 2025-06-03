@@ -215,4 +215,4 @@ OVAL (Open Vulnerability Assessment Language) работает по следую
 
 ---
 
-### 3. Патч oval_com.redhat.rhba_def_20192715.xml RHBA-2019:2715 (CVE-2019-14378)
+### 3. Патч oval_com.redhat.rhba_def_20193384.xml RHBA-2019:2715 (CVE-2019-14378)
