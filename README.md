@@ -210,3 +210,6 @@ OVAL (Open Vulnerability Assessment Language) работает по следую
 Патч исправляет множество компонентов виртуализации, включая:
 - **qemu-kvm** до версии `15:2.12.0-65.module+el8.0.0+4084+cceb9f44.5`
 - **libvirt** до версии `0:4.5.0-24.3.module+el8.0.0+4084+cceb9f44`
+
+
+### 3. Патч oval_com.redhat.rhba_def_20192715.xml RHBA-2019:2715 (CVE-2019-14378)
