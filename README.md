@@ -284,7 +284,7 @@ OVAL (Open Vulnerability Assessment Language) работает по следую
 5. Перехожу на сайт https://bugzilla.redhat.com/show_bug.cgi?id=1692522 и читаю проблему:
 >An issue was discovered in RubyGems 2.6 and later through 3.0.2. Since Gem::CommandManager#run calls alert_error without escaping, escape sequence injection is possible. (There are many ways to cause an error.)
 
-Рассмотрим всё по-порядку:
+Рассмотрим всё по мере опасности:
 
 **CVE-2019-8320:**
 - **Суть:** Уязвимость Directory Traversal в RubyGems 2.7.6 и выше
