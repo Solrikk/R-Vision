@@ -103,3 +103,24 @@ OVAL (Open Vulnerability Assessment Language) работает по следую
 | **Влияние на целостность** | Низкое      | Высокое    |
 | **Влияние на доступность** | Отсутствует | Отсутствует |
 
+Из этого вы можем сделать более конткретны заключения:
+
+#### Основная информация
+- **Уязвимость:** CVE-2019-0816
+- **Компонент:** cloud-init
+- **Критичность:** Moderate (Умеренная)
+- **Платформа:** Red Hat Enterprise Linux 8
+
+#### Описание проблемы
+Уязвимость в Azure SSH Keypairs связана с изменением логики подготовки некоторых Linux-образов, использующих cloud-init.
+
+**Суть проблемы:**
+> A security feature bypass exists in Azure SSH Keypairs, due to a change in the provisioning logic for some Linux images that use cloud-init, aka 'Azure SSH Keypairs Security Feature Bypass Vulnerability'.
+
+**Потенциальные риски:**
+- Неавторизованный доступ к системе
+- Возможность захвата важных данных
+- Непреднамеренная установка публичных ключей из всех доступных сертификатов ВМ
+
+#### Техническое решение
+**Обновление пакета:** cloud-init до версии `0:18.5-1.el8.4` или выше
