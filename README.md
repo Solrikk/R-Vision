@@ -400,4 +400,5 @@
 - **States** - Определяют ожидаемые значения или условия для сравнения найденных объектов. Содержат критерии оценки (версии пакетов, права доступа, содержимое файлов).
 
 
-![image](https://github.com/user-attachments/assets/d0c71f53-ba18-49de-a1cd-ff1ae4b43e5a)
+![image](https://github.com/user-attachments/assets/a2acd6a2-8722-4552-8f62-befd50c85575)
+
