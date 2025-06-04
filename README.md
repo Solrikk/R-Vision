@@ -422,42 +422,37 @@
 Пример:
 
 ```json
-{
-  "vulnerability": {
-    "id": "CVE-2019-8320",
-    "title": "RubyGems Directory Traversal",
-    "severity": "HIGH",
-    "cvss_score": 7.4,
-    "description": "A Directory Traversal issue was discovered in RubyGems 2.7.6 and later through 3.0.2. Before making new directories or touching files (which now include path-checking code for symlinks), it would delete the target destination. If that destination was hidden behind a symlink, a malicious gem could delete arbitrary files on the user's machine, presuming the attacker could guess at paths. Given how frequently gem is run as sudo, and how predictable paths are on modern systems (/tmp, /usr, etc.), this could likely lead to data loss or an unusable system.",
-    "affected_platforms": ["RHEL8", "Ubuntu", "CentOS"],
-    
-    "checks": {
-      "package_check": {
-        "type": "package_version",
-        "package_name": "rubygems",
-        "vulnerable_versions": ">=2.7.6,<=3.0.2",
-        "fixed_version": "3.0.3"
+[
+  {
+    "vulnerability": {
+      "id": "CVE-2019-0816",
+      "title": "RHBA-2019:1992: cloud-init bug fix and enhancement update (Moderate)",
+      "severity": "MODERATE",
+      "cvss_score": 5.4,
+      "description": "The cloud-init packages provide a set of init scripts for cloud instances. Cloud instances need special scripts to run during initialization to retrieve and install SSH keys, and to let the user run various scripts.\n\nUsers of cloud-init are advised to upgrade to these updated packages.",
+      "affected_platforms": [
+        "Red Hat Enterprise Linux 8"
+      ],
+      "checks": {
+        "package_check": {
+          "type": "package_version",
+          "package_name": "unknown",
+          "vulnerable_versions": "unknown",
+          "fixed_version": "unknown"
+        }
       },
-      "file_check": {
-        "type": "file_exists",
-        "path": "/usr/bin/gem",
-        "condition": "exists"
-      }
-    },
-    
-    "remediation": {
-      "action": "update_package",
-      "package": "rubygems",
-      "target_version": ">=3.0.3",
-      "commands": ["yum update rubygems", "gem update --system"]
-    },
-    
-    "references": [
-      "https://access.redhat.com/security/cve/CVE-2019-8320",
-      "https://bugzilla.redhat.com/1692512"
-    ]
-  }
-}
+      "remediation": {
+        "action": "update_package",
+        "package": "unknown",
+        "target_version": "latest",
+        "commands": [
+          "yum update"
+        ]
+      },
+      "references": [
+        "https://access.redhat.com/security/cve/CVE-2019-0816",
+        "https://bugzilla.redhat.com/1680165"
+      ]
 ```
 
 - `vulnerability` - базовая информация о CVE
