@@ -218,7 +218,7 @@
 
 ---
 
-### 3. Патч oval_com.redhat.rhba_def_20193384.xml RHBA-2019:3384: Ruby 2.5 (CVE-2019-8320///CVE-2019-8321///CVE-2019-8322///CVE-2019-8323///CVE-2019-8325)
+### 3. Патч oval_com.redhat.rhba_def_20193384.xml RHBA-2019:3384: Ruby 2.5 (CVE-2019-8320###CVE-2019-8321###CVE-2019-8322###CVE-2019-8323###CVE-2019-8325)
 
 ```xml
 
@@ -478,7 +478,145 @@ systems (/tmp, /usr, etc.), this could likely lead to data loss or an unusable s
 ними объекты) и преобразует его в упрощенный формат.
 
 
-## Пример результата:
+Использовал ресурсы для написания кода - https://github.com/CISecurity/OVALRepo /// https://github.com/CISecurity/OVALRepo/blob/master/scripts/oval_decomposition.py /// https://oval.mitre.org/index.html
+
+### Код Phyton:
+
+```Python
+
+import xml.etree.ElementTree as ET ### выбрал для парсинга XML файлов
+import json ### Выбрал библиотеку для работы с JSON
+
+def parse_oval_patches(xml_file, num_patches=3): ### парсим XML файл с помощью ElementTree
+    tree = ET.parse(xml_file)
+    root = tree.getroot()
+    
+    ns = {'oval': 'http://oval.mitre.org/XMLSchema/oval-definitions-5'} ### определяю namespace для OVAL XML
+     
+    patches = [] ### Создаем список для хранения информации о патчах
+    definitions = root.findall('.//oval:definition[@class="patch"]', ns) 
+    
+    for i, definition in enumerate(definitions[:num_patches]): ### обрабатываем каждый найденный патч
+        patch = { ### Создаю словарь для хранения информации о патче
+            'id': definition.get('id'),
+            'version': definition.get('version'),
+            'title': '',
+            'severity': '',
+            'description': '',
+            'cves': [],
+            'platform': '',
+            'issued_date': '',
+            'updated_date': '',
+            'bugzilla_links': []
+        }
+        
+        metadata = definition.find('oval:metadata', ns) ### ищу блок метаданных в определении патча
+        if metadata is not None: ### проверка на нахождение
+            title = metadata.find('oval:title', ns)
+            if title is not None: ### извлекаем название патча
+                patch['title'] = title.text
+            
+            platform = metadata.find('.//oval:platform', ns) ### извлекаем информацию о платформе
+            if platform is not None:
+                patch['platform'] = platform.text
+            
+            desc = metadata.find('oval:description', ns) ### извлекаем описание патча
+            if desc is not None:
+                patch['description'] = desc.text
+            
+            advisory = metadata.find('oval:advisory', ns) ### # обрабатываем блок advisory с подробной информацией
+            if advisory is not None:
+                severity = advisory.find('oval:severity', ns) ### извлекаем уровень критичности
+                if severity is not None:
+                    patch['severity'] = severity.text
+                
+                issued = advisory.find('oval:issued', ns) ### извлекаем дату выпуска патча
+                if issued is not None:
+                    patch['issued_date'] = issued.get('date')
+                
+                updated = advisory.find('oval:updated', ns) ### извлекаем дату обновления
+                if updated is not None:
+                    patch['updated_date'] = updated.get('date')
+                
+                for cve in advisory.findall('oval:cve', ns): ### обрабатываем все CVE связанные с патчем
+                    cve_info = {
+                        'id': cve.text,
+                        'cvss3': cve.get('cvss3'),
+                        'impact': cve.get('impact'),
+                        'href': cve.get('href')
+                    }
+                    patch['cves'].append(cve_info)
+                
+                for bugzilla in advisory.findall('oval:bugzilla', ns): ### обрабатываем ссылки на баги в Bugzilla
+                    bug_info = {
+                        'id': bugzilla.get('id'),
+                        'href': bugzilla.get('href'),
+                        'description': bugzilla.text
+                    }
+                    patch['bugzilla_links'].append(bug_info)
+        
+        patches.append(patch) ### ддобавляю обработанный патч в общий список
+    
+    return patches ### возвращаю список всех обработанных патчей
+
+def convert_to_simplified_format(patches): ### конвертация сложной структуры OVAL в упрощенный JSON формат
+    simplified_vulnerabilities = [] ### создаю список для упрощенных уязвимостей
+    
+    for patch in patches: ### обрабатываю каждый патч
+        for cve in patch['cves']:
+            vulnerability = {
+                "vulnerability": { ### создаю упрощенную структуру данных
+                    "id": cve['id'],
+                    "title": patch['title'],
+                    "severity": patch['severity'].upper(),
+                    "cvss_score": float(cve['cvss3'].split('/')[0]) if cve['cvss3'] else 0.0,
+                    "description": patch['description'],
+                    "affected_platforms": [patch['platform']],
+                    "checks": {
+                        "package_check": { ### блок проверок
+                            "type": "package_version",
+                            "package_name": "unknown",
+                            "vulnerable_versions": "unknown",
+                            "fixed_version": "unknown"
+                        }
+                    },
+                    "remediation": { ### блок исправления
+                        "action": "update_package",
+                        "package": "unknown",
+                        "target_version": "latest",
+                        "commands": ["yum update"]
+                    },
+                    "references": [cve['href']] + [bug['href'] for bug in patch['bugzilla_links']] ### обьеденяю ссылки на CVE и Bugzilla
+                }
+            }
+            simplified_vulnerabilities.append(vulnerability)
+    
+    return simplified_vulnerabilities
+
+def main():
+    print("Парсинг первых 3 патчей из OVAL XML файла...")
+    
+    patches = parse_oval_patches('attached_assets/rhel-8.oval.xml', 3) ### # парсинг OVAL файла и получаю первые 3 патча
+    
+    simplified = convert_to_simplified_format(patches)
+    
+    with open('vulnerabilities.json', 'w', encoding='utf-8') as f:
+        json.dump(simplified, f, ensure_ascii=False, indent=2)
+    
+    print(f"Успешно обработано {len(patches)} патчей и {len(simplified)} уязвимостей:")
+    for patch in patches:
+        print(f"- {patch['id']}: {patch['title']}")
+        print(f"  Severity: {patch['severity']}")
+        print(f"  CVEs: {len(patch['cves'])}")
+        print()
+
+if __name__ == "__main__":
+    main()
+```
+
+
+
+### Пример результата:
 
 ```JSON
 [
