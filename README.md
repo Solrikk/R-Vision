@@ -483,28 +483,33 @@ systems (/tmp, /usr, etc.), this could likely lead to data loss or an unusable s
 ```JSON
 [
   {
-    "id": "oval:com.redhat.rhba:def:20191992",
-    "version": "635",
-    "title": "RHBA-2019:1992: cloud-init bug fix and enhancement update (Moderate)",
-    "severity": "Moderate",
-    "description": "The cloud-init packages provide a set of init scripts for cloud instances. Cloud instances need special scripts to run during initialization to retrieve and install SSH keys, and to let the user run various scripts.\n\nUsers of cloud-init are advised to upgrade to these updated packages.",
-    "cves": [
-      {
-        "id": "CVE-2019-0816",
-        "cvss3": "5.4/CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N",
-        "impact": "moderate",
-        "href": "https://access.redhat.com/security/cve/CVE-2019-0816"
-      }
-    ],
-    "platform": "Red Hat Enterprise Linux 8",
-    "issued_date": "2019-07-30",
-    "updated_date": "2019-07-30",
-    "bugzilla_links": [
-      {
-        "id": "1680165",
-        "href": "https://bugzilla.redhat.com/1680165",
-        "description": "cloud-init: extra ssh keys added to authorized_keys on the Azure platform"
-      }
-    ]
-  }
+    "vulnerability": {
+      "id": "CVE-2019-0816",
+      "title": "RHBA-2019:1992: cloud-init bug fix and enhancement update (Moderate)",
+      "severity": "MODERATE",
+      "cvss_score": 5.4,
+      "description": "The cloud-init packages provide a set of init scripts for cloud instances. Cloud instances need special scripts to run during initialization to retrieve and install SSH keys, and to let the user run various scripts.\n\nUsers of cloud-init are advised to upgrade to these updated packages.",
+      "affected_platforms": [
+        "Red Hat Enterprise Linux 8"
+      ],
+      "checks": {
+        "package_check": {
+          "type": "package_version",
+          "package_name": "unknown",
+          "vulnerable_versions": "unknown",
+          "fixed_version": "unknown"
+        }
+      },
+      "remediation": {
+        "action": "update_package",
+        "package": "unknown",
+        "target_version": "latest",
+        "commands": [
+          "yum update"
+        ]
+      },
+      "references": [
+        "https://access.redhat.com/security/cve/CVE-2019-0816",
+        "https://bugzilla.redhat.com/1680165"
+      ]
 ```
