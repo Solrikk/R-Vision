@@ -493,11 +493,11 @@ def parse_oval_patches(xml_file, num_patches=3): ### парсим XML файл �
     
     ns = {'oval': 'http://oval.mitre.org/XMLSchema/oval-definitions-5'} ### определяю namespace для OVAL XML
      
-    patches = [] ### Создаем список для хранения информации о патчах
+    patches = [] ### создаю список для хранения информации о патчах
     definitions = root.findall('.//oval:definition[@class="patch"]', ns) 
     
     for i, definition in enumerate(definitions[:num_patches]): ### обрабатываем каждый найденный патч
-        patch = { ### Создаю словарь для хранения информации о патче
+        patch = { ### создаю словарь для хранения информации о патче
             'id': definition.get('id'),
             'version': definition.get('version'),
             'title': '',
@@ -513,32 +513,32 @@ def parse_oval_patches(xml_file, num_patches=3): ### парсим XML файл �
         metadata = definition.find('oval:metadata', ns) ### ищу блок метаданных в определении патча
         if metadata is not None: ### проверка на нахождение
             title = metadata.find('oval:title', ns)
-            if title is not None: ### извлекаем название патча
+            if title is not None: ### извлекаю название патча
                 patch['title'] = title.text
             
-            platform = metadata.find('.//oval:platform', ns) ### извлекаем информацию о платформе
+            platform = metadata.find('.//oval:platform', ns) ### извлекаю информацию о платформе
             if platform is not None:
                 patch['platform'] = platform.text
             
-            desc = metadata.find('oval:description', ns) ### извлекаем описание патча
+            desc = metadata.find('oval:description', ns) ### извлекаю описание патча
             if desc is not None:
                 patch['description'] = desc.text
             
-            advisory = metadata.find('oval:advisory', ns) ### # обрабатываем блок advisory с подробной информацией
+            advisory = metadata.find('oval:advisory', ns) ### # обрабатываю блок advisory с подробной информацией
             if advisory is not None:
-                severity = advisory.find('oval:severity', ns) ### извлекаем уровень критичности
+                severity = advisory.find('oval:severity', ns) ### извлекаю уровень критичности
                 if severity is not None:
                     patch['severity'] = severity.text
                 
-                issued = advisory.find('oval:issued', ns) ### извлекаем дату выпуска патча
+                issued = advisory.find('oval:issued', ns) ### извлекаю дату выпуска патча
                 if issued is not None:
                     patch['issued_date'] = issued.get('date')
                 
-                updated = advisory.find('oval:updated', ns) ### извлекаем дату обновления
+                updated = advisory.find('oval:updated', ns) ### извлекаю дату обновления
                 if updated is not None:
                     patch['updated_date'] = updated.get('date')
                 
-                for cve in advisory.findall('oval:cve', ns): ### обрабатываем все CVE связанные с патчем
+                for cve in advisory.findall('oval:cve', ns): ### обрабатываю все CVE связанные с патчем
                     cve_info = {
                         'id': cve.text,
                         'cvss3': cve.get('cvss3'),
@@ -547,7 +547,7 @@ def parse_oval_patches(xml_file, num_patches=3): ### парсим XML файл �
                     }
                     patch['cves'].append(cve_info)
                 
-                for bugzilla in advisory.findall('oval:bugzilla', ns): ### обрабатываем ссылки на баги в Bugzilla
+                for bugzilla in advisory.findall('oval:bugzilla', ns): ### обрабатываю ссылки на баги в Bugzilla
                     bug_info = {
                         'id': bugzilla.get('id'),
                         'href': bugzilla.get('href'),
