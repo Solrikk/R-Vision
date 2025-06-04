@@ -476,3 +476,35 @@ systems (/tmp, /usr, etc.), this could likely lead to data loss or an unusable s
 разработать приложение на языке Python, которое произведет разбор
 (парсинг) OVAL-файла (достаточно сделать только первые 3 и связанными с
 ними объекты) и преобразует его в упрощенный формат.
+
+
+## Пример результата:
+
+```JSON
+[
+  {
+    "id": "oval:com.redhat.rhba:def:20191992",
+    "version": "635",
+    "title": "RHBA-2019:1992: cloud-init bug fix and enhancement update (Moderate)",
+    "severity": "Moderate",
+    "description": "The cloud-init packages provide a set of init scripts for cloud instances. Cloud instances need special scripts to run during initialization to retrieve and install SSH keys, and to let the user run various scripts.\n\nUsers of cloud-init are advised to upgrade to these updated packages.",
+    "cves": [
+      {
+        "id": "CVE-2019-0816",
+        "cvss3": "5.4/CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N",
+        "impact": "moderate",
+        "href": "https://access.redhat.com/security/cve/CVE-2019-0816"
+      }
+    ],
+    "platform": "Red Hat Enterprise Linux 8",
+    "issued_date": "2019-07-30",
+    "updated_date": "2019-07-30",
+    "bugzilla_links": [
+      {
+        "id": "1680165",
+        "href": "https://bugzilla.redhat.com/1680165",
+        "description": "cloud-init: extra ssh keys added to authorized_keys on the Azure platform"
+      }
+    ]
+  }
+```
