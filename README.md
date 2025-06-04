@@ -416,3 +416,47 @@
 ## Задание 4
 
 >Предложить и кратко описать свой вариант по упрощению формата для описания уязвимости вместе с проверками.
+
+Мы могли заменить XML на JSON, потому чо он намного проще для понимания данных, из-за её упрощенный структуры, так же стандартные JSON-библиотеки есть во всех языках программирования чтобы можно было их удобно обрабатывать различными скриптами и приложениями. Так же при желании можно добавлять различные модули и расширения для json структур.
+
+Пример:
+
+```json
+{
+  "vulnerability": {
+    "id": "CVE-2019-8320",
+    "title": "RubyGems Directory Traversal",
+    "severity": "HIGH",
+    "cvss_score": 7.4,
+    "description": "Directory traversal vulnerability in RubyGems allowing arbitrary file deletion",
+    "affected_platforms": ["RHEL8", "Ubuntu", "CentOS"],
+    
+    "checks": {
+      "package_check": {
+        "type": "package_version",
+        "package_name": "rubygems",
+        "vulnerable_versions": ">=2.7.6,<=3.0.2",
+        "fixed_version": "3.0.3"
+      },
+      "file_check": {
+        "type": "file_exists",
+        "path": "/usr/bin/gem",
+        "condition": "exists"
+      }
+    },
+    
+    "remediation": {
+      "action": "update_package",
+      "package": "rubygems",
+      "target_version": ">=3.0.3",
+      "commands": ["yum update rubygems", "gem update --system"]
+    },
+    
+    "references": [
+      "https://access.redhat.com/security/cve/CVE-2019-8320",
+      "https://bugzilla.redhat.com/1692512"
+    ]
+  }
+}
+```
+
