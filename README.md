@@ -515,7 +515,7 @@ def parse_oval_patches(xml_file, num_patches=3): ### парсим XML файл �
             if desc is not None:
                 patch['description'] = desc.text
             
-            advisory = metadata.find('oval:advisory', ns) ### # обрабатываю блок advisory с подробной информацией
+            advisory = metadata.find('oval:advisory', ns) ### обрабатываю блок advisory с подробной информацией
             if advisory is not None:
                 severity = advisory.find('oval:severity', ns) ### извлекаю уровень критичности
                 if severity is not None:
@@ -587,7 +587,7 @@ def convert_to_simplified_format(patches): ### конвертация сложн
 def main():
     print("Парсинг первых 3 патчей из OVAL XML файла...")
     
-    patches = parse_oval_patches('attached_assets/rhel-8.oval.xml', 3) ### # парсинг OVAL файла и получаю первые 3 патча
+    patches = parse_oval_patches('attached_assets/rhel-8.oval.xml', 3) ### парсинг OVAL файла и получаю первые 3 патча
     
     simplified = convert_to_simplified_format(patches)
     
