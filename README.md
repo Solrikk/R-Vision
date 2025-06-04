@@ -474,6 +474,7 @@
 
 
 Использовал ресурсы для написания кода - https://github.com/CISecurity/OVALRepo /// https://github.com/CISecurity/OVALRepo/blob/master/scripts/oval_decomposition.py /// https://oval.mitre.org/index.html
+Так же очень помог этот репозиторий - https://github.com/ribeiroit/python-oval 
 
 ### Код Phyton:
 
