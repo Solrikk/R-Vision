@@ -1,3 +1,5 @@
+~Delite from: 3 day 
+
 # R-Vision Тестовое задание
 
 ## Задание 1: Анализ OVAL файла RHEL
