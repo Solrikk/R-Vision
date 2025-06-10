@@ -1,4 +1,3 @@
-~Delete from: 3 day 
 
 # R-Vision Тестовое задание
 
